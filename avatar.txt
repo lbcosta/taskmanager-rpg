@@ -1,0 +1,1 @@
+Fulanin;70;100;0.0;0;0;0;0;10;Espada;Strenght;10;Escudo;Constitution;10;Cajado;Intelligence;40
