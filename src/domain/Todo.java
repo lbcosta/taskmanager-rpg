@@ -4,21 +4,21 @@ import java.util.Date;
 
 public class Todo extends ComplexAction {
 	//Fields
-	private Frequency frequencia;
+	private Frequency frequency;
 	
 	//Methods
 	public Todo(String name, String note, String difficulty, String tag, String[] checklist, Date[] reminders,
 			Frequency frequencia) {
 		super(name, note, difficulty, tag, checklist, reminders);
-		this.frequencia = frequencia;
+		this.frequency = frequencia;
 	}
 	
 	//Getters & Setters
 	public Frequency getFrequencia() {
-		return frequencia;
+		return frequency;
 	}
 
 	public void setFrequencia(Frequency frequencia) {
-		this.frequencia = frequencia;
+		this.frequency = frequencia;
 	}
 }

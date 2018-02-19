@@ -2,14 +2,18 @@ package domain;
 
 public class Action {
 	//Fields
+	private static int numberOfActions;
+	private int id;
 	private String name;
 	private String note;
 	private String difficulty;
 	private String tag;
 	
+	
 	//Methods
 	public Action(String name, String note, String difficulty, String tag) {
 		super();
+		this.id = numberOfActions++;
 		this.name = name;
 		this.note = note;
 		this.difficulty = difficulty;
@@ -42,6 +46,9 @@ public class Action {
 		this.tag = tag;
 	}
 	
+	public int getId() {
+		return this.id;
+	}
 	
 	
 	
