@@ -1,22 +1,22 @@
 package domain;
-import java.util.Date;
+import java.util.ArrayList;
 public class Daily extends ComplexAction {
 	//Fields
-	private Date dueDate;
+	private Frequency frequency;
 	
 	//Methods
-	public Daily(String name, String note, String difficulty, String tag, String[] checklist, Date[] reminders,
-			Date dueDate) {
+	public Daily(String name, String note, String difficulty, String tag, ArrayList<String> checklist, ArrayList<String> reminders,
+			Frequency frequencia) {
 		super(name, note, difficulty, tag, checklist, reminders);
-		this.dueDate = dueDate;
+		this.frequency = frequencia;
 	}
-
+	
 	//Getters & Setters
-	public Date getDueDate() {
-		return dueDate;
+	public Frequency getFrequencia() {
+		return frequency;
 	}
 
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
+	public void setFrequencia(Frequency frequencia) {
+		this.frequency = frequencia;
 	}
 }

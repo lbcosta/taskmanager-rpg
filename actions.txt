@@ -1,0 +1,2 @@
+0;Pagar conta;Conta de energia atrasada;Medium;Contas;Levar Dinheiro;Ir ao banco;15:00;16:00;20/02/2018 18:00
+1;Pegar documento;Carteira de identidade;Easy;Docs;Levar Dinheiro;Ir ao banco;15:00;16:00;21/02/2018 17:00

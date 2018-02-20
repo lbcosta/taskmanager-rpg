@@ -1,24 +1,24 @@
 package domain;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 public class Todo extends ComplexAction {
 	//Fields
-	private Frequency frequency;
-	
-	//Methods
-	public Todo(String name, String note, String difficulty, String tag, String[] checklist, Date[] reminders,
-			Frequency frequencia) {
-		super(name, note, difficulty, tag, checklist, reminders);
-		this.frequency = frequencia;
-	}
-	
-	//Getters & Setters
-	public Frequency getFrequencia() {
-		return frequency;
-	}
+		private String dueDate;
+		
+		//Methods
+		public Todo(String name, String note, String difficulty, String tag, ArrayList<String> checklist, ArrayList<String> reminders,
+				String dueDate) {
+			super(name, note, difficulty, tag, checklist, reminders);
+			this.dueDate = dueDate;
+		}
 
-	public void setFrequencia(Frequency frequencia) {
-		this.frequency = frequencia;
-	}
+		//Getters & Setters
+		public String getDueDate() {
+			return dueDate;
+		}
+
+		public void setDueDate(String dueDate) {
+			this.dueDate = dueDate;
+		}
 }
