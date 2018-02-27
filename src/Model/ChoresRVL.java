@@ -2,18 +2,21 @@ package Model;
 
 import java.util.*;
 
-public class ChoresRVL extends TaskRVL{
+public class ChoresRVL extends TaskRVL {
     private ArrayList<ChecklistItem> checklist;
     private ChecklistItem dueDate;
     private ArrayList<String> reminders;
     private boolean dailyFeito;
+    private FrequencyRVL frequency;
 
-    public ChoresRVL(int id, String nome, byte dificuldade, ArrayList<String> tags, ArrayList<ChecklistItem> checklist, ChecklistItem dueDate, ArrayList<String> reminders, boolean dailyFeito) {
-        super(id, nome, dificuldade, tags);
+
+    public ChoresRVL(int id, String nome, byte dificuldade, ArrayList<String> tags, ArrayList<String> observações, ArrayList<ChecklistItem> checklist, ChecklistItem dueDate, ArrayList<String> reminders, boolean dailyFeito, FrequencyRVL frequency) {
+        super(id, nome, dificuldade, tags, observações);
         this.checklist = checklist;
         this.dueDate = dueDate;
         this.reminders = reminders;
         this.dailyFeito = dailyFeito;
+        this.frequency = frequency;
     }
 
     public ArrayList<ChecklistItem> getChecklist() {
@@ -46,5 +49,13 @@ public class ChoresRVL extends TaskRVL{
 
     public void setDailyFeito(boolean dailyFeito) {
         this.dailyFeito = dailyFeito;
+    }
+
+    public FrequencyRVL getFrequency() {
+        return frequency;
+    }
+
+    public void setFrequency(FrequencyRVL frequency) {
+        this.frequency = frequency;
     }
 }

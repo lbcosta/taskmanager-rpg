@@ -1,8 +1,8 @@
 package Model;
 
 public class ChecklistItem {
-    boolean feito;
-    String nome;
+    private boolean feito;
+    private String nome;
 
     public ChecklistItem(boolean feito, String nome) {
         this.feito = feito;

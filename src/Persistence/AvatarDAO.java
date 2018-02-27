@@ -1,5 +1,4 @@
 package Persistence;
-import Model.Avatar;
 
 public interface AvatarDAO {
 	//CRUD - CREATE READ UPDATE DELETE

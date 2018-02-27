@@ -1,7 +1,5 @@
 package Persistence;
 
-import Model.Task;
-
 import java.util.ArrayList;
 
 public interface TaskDAO {

@@ -1,10 +1,5 @@
 package Persistence;
 
-import Model.Task;
-import Model.Daily;
-import Model.Habit;
-import Model.Todo;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

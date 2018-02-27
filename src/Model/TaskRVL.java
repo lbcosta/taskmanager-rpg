@@ -8,6 +8,7 @@ public class TaskRVL {
     private String nome;
     private byte dificuldade;
     private ArrayList<String> tags;
+    private ArrayList<String> observações;
 
     //Construtor primário
     public TaskRVL() {
@@ -15,14 +16,18 @@ public class TaskRVL {
     }
 
     //Construtor secundário
-    public TaskRVL(int id, String nome, byte dificuldade, ArrayList<String> tags) {
+
+
+    public TaskRVL(int id, String nome, byte dificuldade, ArrayList<String> tags, ArrayList<String> observações) {
         this.id = id;
         this.nome = nome;
         this.dificuldade = dificuldade;
         this.tags = tags;
+        this.observações = observações;
     }
 
     //Getters and Setters
+
     public int getId() {
         return id;
     }
@@ -53,5 +58,13 @@ public class TaskRVL {
 
     public void setTags(ArrayList<String> tags) {
         this.tags = tags;
+    }
+
+    public ArrayList<String> getObservações() {
+        return observações;
+    }
+
+    public void setObservações(ArrayList<String> observações) {
+        this.observações = observações;
     }
 }

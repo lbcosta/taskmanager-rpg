@@ -7,8 +7,8 @@ public class DailyRVL extends TaskRVL {
     private ArrayList<ChecklistItem> checklist;
     private boolean dailyFeito;
 
-    public DailyRVL(int id, String nome, byte dificuldade, ArrayList<String> tags, ArrayList<ChecklistItem> checklist, boolean dailyFeito) {
-        super(id, nome, dificuldade, tags);
+    public DailyRVL(int id, String nome, byte dificuldade, ArrayList<String> tags, ArrayList<String> observações, ArrayList<ChecklistItem> checklist, boolean dailyFeito) {
+        super(id, nome, dificuldade, tags, observações);
         this.checklist = checklist;
         this.dailyFeito = dailyFeito;
     }
