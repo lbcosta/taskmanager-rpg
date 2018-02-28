@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TaskRVL {
+public class TaskRVL implements Serializable{
     //Propriedades
     private int id;
     private String nome;

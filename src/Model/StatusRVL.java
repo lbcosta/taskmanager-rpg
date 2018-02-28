@@ -1,6 +1,8 @@
 package Model;
 
-public class StatusRVL {
+import java.io.Serializable;
+
+public class StatusRVL implements Serializable{
     private int força;
     private int inteligência;
     private int constituição;

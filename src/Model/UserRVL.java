@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserRVL {
+public class UserRVL implements Serializable{
     private ArrayList<ItemRVL> itens;
     private ArrayList<TaskRVL> tasks;
     private String name;
@@ -11,8 +12,9 @@ public class UserRVL {
     private int level;
     private int health;
     private int coins;
+    private int id;
 
-    public UserRVL(ArrayList<ItemRVL> itens, ArrayList<TaskRVL> tasks, String name, StatusRVL status, double experience, int level, int health, int coins) {
+    public UserRVL(ArrayList<ItemRVL> itens, ArrayList<TaskRVL> tasks, String name, StatusRVL status, double experience, int level, int health, int coins, int id) {
         this.itens = itens;
         this.tasks = tasks;
         this.name = name;
@@ -21,6 +23,15 @@ public class UserRVL {
         this.level = level;
         this.health = health;
         this.coins = coins;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public ArrayList<ItemRVL> getItens() {

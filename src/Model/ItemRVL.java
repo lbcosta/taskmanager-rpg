@@ -1,6 +1,8 @@
 package Model;
 
-public class ItemRVL {
+import java.io.Serializable;
+
+public class ItemRVL implements Serializable{
     private String nome;
     private String descrição;
     private int price;
