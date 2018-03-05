@@ -3,19 +3,19 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserRVL implements Serializable{
-    private ArrayList<ItemRVL> itens;
-    private ArrayList<TaskRVL> tasks;
+public class User implements Serializable{
+    private ArrayList<Item> items;
+    private ArrayList<Task> tasks;
     private String name;
-    private StatusRVL status;
+    private Status status;
     private double experience;
     private int level;
     private int health;
     private int coins;
     private int id;
 
-    public UserRVL(ArrayList<ItemRVL> itens, ArrayList<TaskRVL> tasks, String name, StatusRVL status, double experience, int level, int health, int coins, int id) {
-        this.itens = itens;
+    public User(ArrayList<Item> items, ArrayList<Task> tasks, String name, Status status, double experience, int level, int health, int coins, int id) {
+        this.items = items;
         this.tasks = tasks;
         this.name = name;
         this.status = status;
@@ -34,19 +34,19 @@ public class UserRVL implements Serializable{
         this.id = id;
     }
 
-    public ArrayList<ItemRVL> getItens() {
-        return itens;
+    public ArrayList<Item> getItems() {
+        return items;
     }
 
-    public void setItens(ArrayList<ItemRVL> itens) {
-        this.itens = itens;
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 
-    public ArrayList<TaskRVL> getTasks() {
+    public ArrayList<Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(ArrayList<TaskRVL> tasks) {
+    public void setTasks(ArrayList<Task> tasks) {
         this.tasks = tasks;
     }
 
@@ -58,11 +58,11 @@ public class UserRVL implements Serializable{
         this.name = name;
     }
 
-    public StatusRVL getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(StatusRVL status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

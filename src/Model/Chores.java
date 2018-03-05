@@ -2,20 +2,20 @@ package Model;
 
 import java.util.*;
 
-public class ChoresRVL extends TaskRVL {
+public class Chores extends Task {
     private ArrayList<ChecklistItem> checklist;
     private ChecklistItem dueDate;
     private ArrayList<String> reminders;
-    private boolean dailyFeito;
-    private FrequencyRVL frequency;
+    private boolean dailyDone;
+    private Frequency frequency;
 
 
-    public ChoresRVL(int id, String nome, byte dificuldade, ArrayList<String> tags, ArrayList<String> observações, ArrayList<ChecklistItem> checklist, ChecklistItem dueDate, ArrayList<String> reminders, boolean dailyFeito, FrequencyRVL frequency) {
-        super(id, nome, dificuldade, tags, observações);
+    public Chores(int id, String name, byte difficulty, ArrayList<String> tags, ArrayList<String> comments, ArrayList<ChecklistItem> checklist, ChecklistItem dueDate, ArrayList<String> reminders, boolean dailyDone, Frequency frequency) {
+        super(id, name, difficulty, tags, comments);
         this.checklist = checklist;
         this.dueDate = dueDate;
         this.reminders = reminders;
-        this.dailyFeito = dailyFeito;
+        this.dailyDone = dailyDone;
         this.frequency = frequency;
     }
 
@@ -43,19 +43,19 @@ public class ChoresRVL extends TaskRVL {
         this.reminders = reminders;
     }
 
-    public boolean isDailyFeito() {
-        return dailyFeito;
+    public boolean isDailyDone() {
+        return dailyDone;
     }
 
-    public void setDailyFeito(boolean dailyFeito) {
-        this.dailyFeito = dailyFeito;
+    public void setDailyDone(boolean dailyDone) {
+        this.dailyDone = dailyDone;
     }
 
-    public FrequencyRVL getFrequency() {
+    public Frequency getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(FrequencyRVL frequency) {
+    public void setFrequency(Frequency frequency) {
         this.frequency = frequency;
     }
 }

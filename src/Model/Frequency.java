@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class FrequencyRVL {
+public class Frequency {
     private String startDate;
     private int repeats;
     private ArrayList<String> reminders;
 
-    public FrequencyRVL(String startDate, int repeats, ArrayList<String> reminders) {
+    public Frequency(String startDate, int repeats, ArrayList<String> reminders) {
         this.startDate = startDate;
         this.repeats = repeats;
         this.reminders = reminders;

@@ -2,18 +2,18 @@ package Model;
 
 import java.util.ArrayList;
 
-public class HabitRVL extends TaskRVL{
+public class Habit extends Task {
 
     private boolean positiveInfluence;
     private boolean negativeInfluence;
     private int positivePoints;
     private int negativePoints;
 
-    //Construtor
+    //Constructor
 
 
-    public HabitRVL(int id, String nome, byte dificuldade, ArrayList<String> tags, ArrayList<String> observações, boolean positiveInfluence, boolean negativeInfluence, int positivePoints, int negativePoints) {
-        super(id, nome, dificuldade, tags, observações);
+    public Habit(int id, String name, byte difficulty, ArrayList<String> tags, ArrayList<String> comments, boolean positiveInfluence, boolean negativeInfluence, int positivePoints, int negativePoints) {
+        super(id, name, difficulty, tags, comments);
         this.positiveInfluence = positiveInfluence;
         this.negativeInfluence = negativeInfluence;
         this.positivePoints = positivePoints;

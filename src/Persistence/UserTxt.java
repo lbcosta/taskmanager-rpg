@@ -1,25 +1,20 @@
 package Persistence;
 
-import Model.UserRVL;
+import Model.User;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
-public class UserTxtDAO implements UserDAO {
-    private static final String filePath = "C:\\Users\\rodri\\IdeaProjects\\TaskManagerLeo\\src\\Users\\";
-//    private static List<UserRVL> UsersAux = new ArrayList<UserRVL>();
+public class UserTxt implements UserDAO {
+    private static final String filePath = System.getProperty("user.dir") + "\\srcs\\Users\\";
+//    private static List<User> UsersAux = new ArrayList<User>();
 
     @Override
-    public void inserir(UserRVL user) {
-        //Perguntar sobre como resolver o problema de relacionamento, IDs etc
-        //Perguntar como deixar o path relativo, para o programa funcionar em qualquer PC
-        //Perguntar para o professor sobre retornar boolean para saber se o objeto foi inserido ou não.
+    public void insert(User user) {
         try {
-            String nomeFile = filePath + user.getId() + ".txt";
-            ObjectOutputStream objectStream = new ObjectOutputStream(Files.newOutputStream(Paths.get(nomeFile)));
+            String nameFile = filePath + user.getId() + ".txt";
+            ObjectOutputStream objectStream = new ObjectOutputStream(Files.newOutputStream(Paths.get(nameFile)));
             objectStream.writeObject(user);
         } catch (IOException e) {
             e.printStackTrace();
@@ -27,9 +22,9 @@ public class UserTxtDAO implements UserDAO {
     }
 
     @Override
-    public void remover(UserRVL user) {
-        File caminho = new File(filePath);
-        File[] filesdoDiretorio = caminho.listFiles();
+    public void remove(User user) {
+        File path = new File(filePath);
+        File[] filesdoDiretorio = path.listFiles();
         for (int r = 0; r < filesdoDiretorio.length; r++) {
             if (filesdoDiretorio[r].getName().equals(user.getId() + ".txt")) {
                 filesdoDiretorio[r].delete();
@@ -38,28 +33,28 @@ public class UserTxtDAO implements UserDAO {
     }
 
     @Override
-    public void alterar(UserRVL user) {
-        File caminho = new File(filePath);
-        File[] filesdoDiretorio = caminho.listFiles();
+    public void change(User user) {
+        File path = new File(filePath);
+        File[] directoryFiles = path.listFiles();
 
     }
 
     @Override
-    public UserRVL procurarPorID(int id) {
-        UserRVL auxiliar = null;
+    public User searchForId(int id) {
+        User auxiliary = null;
         ObjectInputStream objectInputStream = null;
 
-        File caminho = new File(filePath);
-        File[] filesdoDiretorio = caminho.listFiles();
-        for (int r = 0; r < filesdoDiretorio.length; r++) {
-            if (filesdoDiretorio[r].getName().equals(id + ".txt")) {
+        File path = new File(filePath);
+        File[] directoryFiles = path.listFiles();
+        for (int r = 0; r < directoryFiles.length; r++) {
+            if (directoryFiles[r].getName().equals(id + ".txt")) {
                 try {
-                    objectInputStream = new ObjectInputStream(Files.newInputStream(Paths.get(filesdoDiretorio[r].getPath())));
-                    auxiliar = (UserRVL) objectInputStream.readObject();
+                    objectInputStream = new ObjectInputStream(Files.newInputStream(Paths.get(directoryFiles[r].getPath())));
+                    auxiliary = (User) objectInputStream.readObject();
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
-                return auxiliar;
+                return auxiliary;
             }
         }
         return null;
@@ -75,7 +70,7 @@ public class UserTxtDAO implements UserDAO {
 //            bw = new BufferedWriter(fw);
 //
 //            for (Cliente c : clientesAux) {
-//                bw.write(c.getCpf() + ";" + c.getNome() + ";" + c.getEmail() + ";" + c.getIdade() + ";" + c.isHabilitado());
+//                bw.write(c.getCpf() + ";" + c.getName() + ";" + c.getEmail() + ";" + c.getIdade() + ";" + c.isHabilitado());
 //                bw.newLine();
 //            }
 //        } catch (IOException e) {
@@ -105,7 +100,7 @@ public class UserTxtDAO implements UserDAO {
 //            while ((linha = br.readLine()) != null) {
 //                String[] dados = linha.split(";");
 //
-//                UsersAux.add(new UserRVL(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), Boolean.parseBoolean(dados[4])));
+//                UsersAux.add(new User(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), Boolean.parseBoolean(dados[4])));
 //
 //            }
 //        } catch (IOException e) {

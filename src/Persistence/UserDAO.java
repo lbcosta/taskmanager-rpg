@@ -1,10 +1,10 @@
 package Persistence;
 
-import Model.UserRVL;
+import Model.User;
 
 public interface UserDAO {
-    public void inserir(UserRVL user);
-    public void remover(UserRVL user);
-    public void alterar(UserRVL user);
-    public UserRVL procurarPorID(int id);
+    public void insert(User user);
+    public void remove(User user);
+    public void change(User user);
+    public User searchForId(int id);
 }

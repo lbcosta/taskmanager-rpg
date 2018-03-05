@@ -1,6 +1,6 @@
 package Persistence;
 
-public class TaskDAORVL {
+public class TaskDAO {
 
 
 }

@@ -1,27 +1,27 @@
 package Model;
 
 public class ChecklistItem {
-    private boolean feito;
-    private String nome;
+    private boolean done;
+    private String name;
 
-    public ChecklistItem(boolean feito, String nome) {
-        this.feito = feito;
-        this.nome = nome;
+    public ChecklistItem(boolean done, String name) {
+        this.done = done;
+        this.name = name;
     }
 
-    public boolean isFeito() {
-        return feito;
+    public boolean isDone() {
+        return done;
     }
 
-    public void setFeito(boolean feito) {
-        this.feito = feito;
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 }
