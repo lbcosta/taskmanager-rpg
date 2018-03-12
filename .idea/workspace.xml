@@ -3,22 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="21203db2-16f7-4c80-b8a1-a3826e9ab37a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Main.java" afterPath="$PROJECT_DIR$/src/Controller/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ChecklistItem.java" afterPath="$PROJECT_DIR$/src/Model/ChecklistItem.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ChoresRVL.java" afterPath="$PROJECT_DIR$/src/Model/Chores.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/DailyRVL.java" afterPath="$PROJECT_DIR$/src/Model/Daily.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/FrequencyRVL.java" afterPath="$PROJECT_DIR$/src/Model/Frequency.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/HabitRVL.java" afterPath="$PROJECT_DIR$/src/Model/Habit.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ItemRVL.java" afterPath="$PROJECT_DIR$/src/Model/Item.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/StatusRVL.java" afterPath="$PROJECT_DIR$/src/Model/Status.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/TaskRVL.java" afterPath="$PROJECT_DIR$/src/Model/Task.java" />
-      <change beforePath="$PROJECT_DIR$/src/Model/UserRVL.java" afterPath="$PROJECT_DIR$/src/Model/User.java" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/TaskDAORVL.java" afterPath="$PROJECT_DIR$/src/Persistence/TaskDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserDAO.java" afterPath="$PROJECT_DIR$/src/Persistence/UserDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserTxtDAO.java" afterPath="$PROJECT_DIR$/src/Persistence/UserTxt.java" />
-      <change beforePath="$PROJECT_DIR$/src/Users/1.txt" afterPath="$PROJECT_DIR$/src/Users/1.txt" />
-      <change beforePath="$PROJECT_DIR$/src/Users/2.txt" afterPath="$PROJECT_DIR$/src/Users/2.txt" />
-      <change beforePath="$PROJECT_DIR$/src/Users/3.txt" afterPath="$PROJECT_DIR$/src/Users/3.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,11 +37,11 @@
       <file leaf-file-name="UserTxt.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Persistence/UserTxt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="313">
+              <caret line="52" column="70" lean-forward="false" selection-start-line="52" selection-start-column="70" selection-end-line="52" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1990#2028#0" expanded="false" />
+                <element signature="e#1978#2016#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -124,7 +108,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1378" />
     <option name="height" value="780" />
@@ -380,27 +364,26 @@
       <workItem from="1519841282122" duration="48000" />
       <workItem from="1519989075480" duration="38000" />
       <workItem from="1520020675225" duration="3057000" />
-      <workItem from="1520247243719" duration="550000" />
+      <workItem from="1520247243719" duration="2084000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21034000" />
+    <option name="totallyTimeSpent" value="22568000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.4941435" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20131771" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -478,7 +461,7 @@
           <caret line="56" column="5" lean-forward="false" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1990#2028#0" expanded="false" />
+            <element signature="e#1978#2016#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -665,11 +648,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Persistence/UserTxt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="313">
+          <caret line="52" column="70" lean-forward="false" selection-start-line="52" selection-start-column="70" selection-end-line="52" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1990#2028#0" expanded="false" />
+            <element signature="e#1978#2016#0" expanded="false" />
           </folding>
         </state>
       </provider>
