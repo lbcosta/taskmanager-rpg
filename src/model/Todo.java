@@ -1,23 +1,26 @@
 package model;
 
-import java.time.LocalDate;
-import java.util.*;
+import java.util.Date;
 
 public class Todo extends Task {
     private boolean todoDone;
-    private LocalDate dueDate;
-    private ArrayList<LocalDate> reminders;
+    private Date dueDate;
+    private int avatarId;
 
+    public Todo() {
+    }
 
-    public Todo(String name, String difficulty, String description, boolean todoDone,
-                LocalDate dueDate, ArrayList<LocalDate> reminders) {
+    public Todo(boolean todoDone, Date dueDate, int avatarId) {
+        this.todoDone = todoDone;
+        this.dueDate = dueDate;
+        this.avatarId = avatarId;
+    }
+
+    public Todo(String name, String difficulty, String description, boolean todoDone, Date dueDate, int avatarId) {
         super(name, difficulty, description);
         this.todoDone = todoDone;
         this.dueDate = dueDate;
-        this.reminders = reminders;
-    }
-
-    public Todo (){
+        this.avatarId = avatarId;
     }
 
     public boolean isTodoDone() {
@@ -28,19 +31,19 @@ public class Todo extends Task {
         this.todoDone = todoDone;
     }
 
-    public LocalDate getDueDate() {
+    public Date getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
-    public ArrayList<LocalDate> getReminders() {
-        return reminders;
+    public int getAvatarId() {
+        return avatarId;
     }
 
-    public void setReminders(ArrayList<LocalDate> reminders) {
-        this.reminders = reminders;
+    public void setAvatarId(int avatarId) {
+        this.avatarId = avatarId;
     }
 }

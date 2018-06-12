@@ -1,33 +1,28 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Avatar {
     private int id;
     private String name;
-    private Status status;
+    private int statusId;
     private int experience;
     private int level;
     private int health;
     private int coins;
     private int points;
-    private ArrayList<Task> tasks;
 
     public Avatar() {
 
     }
 
-    public Avatar(int id, String name, Status status, int experience, int level,
-                  int health, int coins, int points, ArrayList<Task> tasks) {
+    public Avatar(int id, String name, int statusId, int experience, int level, int health, int coins, int points) {
         this.id = id;
         this.name = name;
-        this.status = status;
+        this.statusId = statusId;
         this.experience = experience;
         this.level = level;
         this.health = health;
         this.coins = coins;
         this.points = points;
-        this.tasks = tasks;
     }
 
     public int getId() {
@@ -38,27 +33,6 @@ public class Avatar {
         this.id = id;
     }
 
-    public ArrayList<Task> getTasks() {
-        return tasks;
-    }
-
-    public void addTask(Task task){
-        tasks.add(task);
-    }
-
-    public void removeTask(String name){
-        for(Task t : tasks) {
-            if(t.getName().equals(name)) {
-                tasks.remove(t);
-                break;
-            }
-        }
-    }
-
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
-    }
-
     public String getName() {
         return name;
     }
@@ -67,12 +41,12 @@ public class Avatar {
         this.name = name;
     }
 
-    public Status getStatus() {
-        return status;
+    public int getStatusId() {
+        return statusId;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
     }
 
     public int getExperience() {

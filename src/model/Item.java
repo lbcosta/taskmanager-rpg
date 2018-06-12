@@ -1,22 +1,34 @@
 package model;
 
 public class Item {
-    private String name;
-    private String description;
-    private int price;
-    private int strengthBonus;
-    private int intelligenceBonus;
-    private int agilityBonus;
-    private int constitutionBonus;
 
-    public Item(String name, String description, int price, int strengthBonus, int intelligenceBonus, int agilityBonus, int constitutionBonus) {
+    private int id;
+    private String name;
+    private int strength;
+    private int intelligence;
+    private int constitution;
+    private int agility;
+    private double price;
+
+    public Item() {
+    }
+
+    public Item(int id, String name, int strength, int intelligence, int constitution, int agility, double price) {
+        this.id = id;
         this.name = name;
-        this.description = description;
+        this.strength = strength;
+        this.intelligence = intelligence;
+        this.constitution = constitution;
+        this.agility = agility;
         this.price = price;
-        this.strengthBonus = strengthBonus;
-        this.intelligenceBonus = intelligenceBonus;
-        this.agilityBonus = agilityBonus;
-        this.constitutionBonus = constitutionBonus;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -27,51 +39,43 @@ public class Item {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public int getStrength() {
+        return strength;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
-    public int getPrice() {
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
+    }
+
+    public int getConstitution() {
+        return constitution;
+    }
+
+    public void setConstitution(int constitution) {
+        this.constitution = constitution;
+    }
+
+    public int getAgility() {
+        return agility;
+    }
+
+    public void setAgility(int agility) {
+        this.agility = agility;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
-    }
-
-    public int getStrengthBonus() {
-        return strengthBonus;
-    }
-
-    public void setStrengthBonus(int strengthBonus) {
-        this.strengthBonus = strengthBonus;
-    }
-
-    public int getIntelligenceBonus() {
-        return intelligenceBonus;
-    }
-
-    public void setIntelligenceBonus(int intelligenceBonus) {
-        this.intelligenceBonus = intelligenceBonus;
-    }
-
-    public int getAgilityBonus() {
-        return agilityBonus;
-    }
-
-    public void setAgilityBonus(int agilityBonus) {
-        this.agilityBonus = agilityBonus;
-    }
-
-    public int getConstitutionBonus() {
-        return constitutionBonus;
-    }
-
-    public void setConstitutionBonus(int constitutionBonus) {
-        this.constitutionBonus = constitutionBonus;
     }
 }

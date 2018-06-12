@@ -1,23 +1,19 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Daily extends Task {
 
     private boolean dailyDone;
-    private ArrayList<CheckListItem> checklist;
-    private Frequency frequency;
+    private int avatarId;
 
-    public Daily(){
-
+    public Daily(boolean dailyDone, int avatarId) {
+        this.dailyDone = dailyDone;
+        this.avatarId = avatarId;
     }
 
-    public Daily(String name, String difficulty, String descricao, boolean dailyDone,
-                 ArrayList<CheckListItem> checklist, Frequency frequency) {
-        super(name, difficulty, descricao);
+    public Daily(String name, String difficulty, String description, boolean dailyDone, int avatarId) {
+        super(name, difficulty, description);
         this.dailyDone = dailyDone;
-        this.checklist = checklist;
-        this.frequency = frequency;
+        this.avatarId = avatarId;
     }
 
     public boolean isDailyDone() {
@@ -28,19 +24,11 @@ public class Daily extends Task {
         this.dailyDone = dailyDone;
     }
 
-    public ArrayList<CheckListItem> getChecklist() {
-        return checklist;
+    public int getAvatarId() {
+        return avatarId;
     }
 
-    public void setChecklist(ArrayList<CheckListItem> checklist) {
-        this.checklist = checklist;
-    }
-
-    public Frequency getFrequency() {
-        return frequency;
-    }
-
-    public void setFrequency(Frequency frequency) {
-        this.frequency = frequency;
+    public void setAvatarId(int avatarId) {
+        this.avatarId = avatarId;
     }
 }

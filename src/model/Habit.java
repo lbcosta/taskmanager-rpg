@@ -6,19 +6,28 @@ public class Habit extends Task {
     private boolean negativeInfluence;
     private int positivePoints;
     private int negativePoints;
+    private int avatarId;
 
 
     public Habit(){
 
     }
 
-    public Habit(String name, String difficulty, String descricao, boolean positiveInfluence,
-                 boolean negativeInfluence, int positivePoints, int negativePoints) {
-        super(name, difficulty, descricao);
+    public Habit(boolean positiveInfluence, boolean negativeInfluence, int positivePoints, int negativePoints, int avatarId) {
         this.positiveInfluence = positiveInfluence;
         this.negativeInfluence = negativeInfluence;
         this.positivePoints = positivePoints;
         this.negativePoints = negativePoints;
+        this.avatarId = avatarId;
+    }
+
+    public Habit(String name, String difficulty, String description, boolean positiveInfluence, boolean negativeInfluence, int positivePoints, int negativePoints, int avatarId) {
+        super(name, difficulty, description);
+        this.positiveInfluence = positiveInfluence;
+        this.negativeInfluence = negativeInfluence;
+        this.positivePoints = positivePoints;
+        this.negativePoints = negativePoints;
+        this.avatarId = avatarId;
     }
 
     public boolean isPositiveInfluence() {
@@ -51,5 +60,13 @@ public class Habit extends Task {
 
     public void setNegativePoints(int negativePoints) {
         this.negativePoints = negativePoints;
+    }
+
+    public int getAvatarId() {
+        return avatarId;
+    }
+
+    public void setAvatarId(int avatarId) {
+        this.avatarId = avatarId;
     }
 }
