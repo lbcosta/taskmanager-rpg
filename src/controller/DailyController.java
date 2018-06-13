@@ -8,8 +8,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import model.Daily;
 import model.Dao;
-import persistence.AvatarDao;
-import persistence.DailyDao;
 
 import static application.App.avatarUnico;
 

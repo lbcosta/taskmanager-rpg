@@ -7,8 +7,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import model.Dao;
 import model.Habit;
-import persistence.AvatarDao;
-import persistence.HabitDao;
+
 import static application.App.avatarUnico;
 
 public class HabitController {

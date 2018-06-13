@@ -1,16 +1,13 @@
 package controller;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import model.*;
-import persistence.AvatarDao;
 
 import static application.App.avatarUnico;
 
@@ -83,9 +80,22 @@ public class ItemController {
     }
 
     public void alterButton() {
-       //buyButton.setVisible(false);
+        int str = Integer.parseInt(itemStr.getText());
+        int intl = Integer.parseInt(itemInt.getText());
+        int agi = Integer.parseInt(itemAgi.getText());
+        int con = Integer.parseInt(itemCon.getText());
+
         buyButton.setText("X");
-        buyButton.setOnMouseClicked(e -> {
+        buyButton.setStyle("-fx-background-color: #990000");
+
+        buyButton.setOnAction(e -> {
+            Status status = dao.buscar(Status.class, "id", avatarUnico.getId());
+            status.setStrength(status.getStrength() - str);
+            status.setIntelligence(status.getIntelligence() - intl);
+            status.setAgility(status.getAgility() - agi);
+            status.setConstitution(status.getConstitution() - con);
+            dao.alterar(status, status.getId());
+
             Item i = dao.buscar(Item.class, "name", itemName.getText());
             ItemDoAvatar item = dao.buscar(ItemDoAvatar.class, "itemId", i.getId());
             dao.excluir(ItemDoAvatar.class, item.getId());

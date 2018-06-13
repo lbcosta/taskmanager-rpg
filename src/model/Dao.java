@@ -50,7 +50,6 @@ public class Dao {
     }
 
     public <T> void excluir(Class<T> tabela, int key) {
-
         try {
             con = Conexao.getConnection();
             statement = con.prepareStatement("delete from " + tabela.getSimpleName() + " where id = ?");
@@ -68,16 +67,20 @@ public class Dao {
         String keyName = camposNaClasse[0].getName();
 
         StringBuilder campos = new StringBuilder();
-        for (Field field : camposNaClasse) {
-            campos.append(field.getName()).append(" = ?,");
+
+        for(int i = 1; i < camposNaClasse.length; i++) {
+            campos.append(camposNaClasse[i].getName()).append(" = ?,");
         }
+//        for (Field field : camposNaClasse) {
+//            campos.append(field.getName()).append(" = ?,");
+//        }
         campos = new StringBuilder(campos.substring(0, campos.length() - 1));
 
         try {
             con = Conexao.getConnection();
             statement = con.prepareStatement("update " + dado.getClass().getSimpleName() + " set " + campos + " where " + keyName + "= ?");
             int parametrosSetados = statementSetter(dado, camposNaClasse);
-            statement.setInt(parametrosSetados + 1, key);
+            statement.setInt(parametrosSetados, key);
             statement.executeUpdate();
         } catch (SQLException | IllegalAccessException e1) {
             e1.printStackTrace();
@@ -161,6 +164,18 @@ public class Dao {
         return dados;
     }
 
+
+    private void parametroSetter(Object valorFiltro) throws SQLException {
+        if (valorFiltro instanceof Integer)
+            statement.setInt(1, (int) valorFiltro);
+        else if (valorFiltro instanceof Double)
+            statement.setDouble(1, (double) valorFiltro);
+        else if (valorFiltro instanceof String)
+            statement.setString(1, (String) valorFiltro);
+        else if (valorFiltro instanceof Boolean)
+            statement.setBoolean(1, (Boolean) valorFiltro);
+    }
+
     public <T> ArrayList<Integer> buscarChaves(Class<T> tabela) {
         ArrayList<Integer> chaves = new ArrayList<>();
 
@@ -181,44 +196,36 @@ public class Dao {
         return chaves;
     }
 
-    private void parametroSetter(Object valorFiltro) throws SQLException {
-        if (valorFiltro instanceof Integer)
-            statement.setInt(1, (int) valorFiltro);
-        else if (valorFiltro instanceof Double)
-            statement.setDouble(1, (double) valorFiltro);
-        else if (valorFiltro instanceof String)
-            statement.setString(1, (String) valorFiltro);
-        else if (valorFiltro instanceof Boolean)
-            statement.setBoolean(1, (Boolean) valorFiltro);
-    }
 
     private <T> void fieldSetter(T dado, Field field, Object valor) throws IllegalAccessException {
-        if (field.getType().equals(Integer.class)) {
+        if (field.getType().equals(IntegerProperty.class)) {
             if (valor != null) {
-                field.set(dado, valor);
+                field.set(dado, new SimpleIntegerProperty((int) valor));
             }
-        } else if (field.getType().equals(Double.class))
-            field.set(dado, valor);
-        else if (field.getType().equals(String.class))
-            field.set(dado, valor);
+        } else if (field.getType().equals(DoubleProperty.class))
+            field.set(dado, new SimpleDoubleProperty((double) valor));
+        else if (field.getType().equals(StringProperty.class))
+            field.set(dado, new SimpleStringProperty((String) valor));
+        else if (field.getType().equals(BooleanProperty.class))
+            field.set(dado, new SimpleBooleanProperty((boolean) valor));
         else
-            field.set(dado, valor);
+            field.set(dado, new SimpleObjectProperty<>((Date) valor));
     }
 
     private <T> int statementSetter(T dado, Field[] camposNaClasse) throws SQLException, IllegalAccessException {
         int i;
         for (i = 1; i < camposNaClasse.length; i++) {
             Object valor = camposNaClasse[i].get(dado);
-            if (valor instanceof Integer) {
-                statement.setInt(i, (int) valor);
-            } else if (valor instanceof Double)
-                statement.setDouble(i, (double) valor);
-            else if (valor instanceof String)
-                statement.setString(i, (String) valor);
-            else if (valor instanceof Date)
-                statement.setDate(i, (Date) valor);
-            else if (valor instanceof Boolean)
-                statement.setBoolean(i, (Boolean) valor);
+            if (valor instanceof IntegerProperty) {
+                statement.setInt(i, ((IntegerProperty) valor).get());
+            } else if (valor instanceof DoubleProperty)
+                statement.setDouble(i, ((DoubleProperty) valor).get());
+            else if (valor instanceof StringProperty)
+                statement.setString(i, ((StringProperty) valor).get());
+            else if (valor instanceof BooleanProperty)
+                statement.setBoolean(i, ((BooleanProperty) valor).get());
+            else if (valor instanceof SimpleObjectProperty)
+                statement.setDate(i, new java.sql.Date(((SimpleObjectProperty<java.util.Date>) valor).get().getTime()));
         }
         return i; //Retorna quantos parametros foram setados + 1.
     }

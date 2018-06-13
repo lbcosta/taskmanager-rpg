@@ -6,11 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.*;
-import persistence.DailyDao;
-import persistence.HabitDao;
-import persistence.TodoDao;
 
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -118,7 +114,7 @@ public class NewTaskController {
 
     public void addNewDaily(ActionEvent actionEvent) {
         String nome = nomeNewDaily.getText();
-        String dificuldade = difNewDaily.getValue().toString();
+        String dificuldade = difNewDaily.getValue();
         String descricao = descNewDaily.getText();
         Date startDate =  Date.from(startDateNewDaily.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         int repeats = Integer.parseInt(repNewDaily.getText());
@@ -135,7 +131,7 @@ public class NewTaskController {
 
     public void addNewTodo(ActionEvent actionEvent) {
         String nome = nomeNewTodo.getText();
-        String dificuldade = difNewTodo.getValue().toString();
+        String dificuldade = difNewTodo.getValue();
         String descricao = descNewTodo.getText();
         Date dueDate = Date.from(dueDateNewTodo.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 

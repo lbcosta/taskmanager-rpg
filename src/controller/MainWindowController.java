@@ -150,6 +150,7 @@ public class MainWindowController {
         dailyPane.getChildren().clear();
         habitPane.getChildren().clear();
         todoPane.getChildren().clear();
+        itemsPane.getChildren().clear();
 
         hpBar.setProgress(0.01 * App.avatarUnico.getHealth());
         xpBar.setProgress(0.01 * App.avatarUnico.getExperience());
@@ -191,31 +192,68 @@ public class MainWindowController {
     }
 
     public void openTodo(ActionEvent actionEvent) {
+        todoButton.getParent().setStyle("-fx-background-color: #e0e0e0");
+        habitButton.getParent().setStyle("-fx-background-color: white");
+        dailyButton.getParent().setStyle("-fx-background-color: white");
+        statusButton.getParent().setStyle("-fx-background-color: white");
+        itemsButton.getParent().setStyle("-fx-background-color: white");
+        storeButton.getParent().setStyle("-fx-background-color: white");
+
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(toDo);
     }
 
     public void openHabit(ActionEvent actionEvent) {
+        todoButton.getParent().setStyle("-fx-background-color: white");
+        habitButton.getParent().setStyle("-fx-background-color: #e0e0e0");
+        dailyButton.getParent().setStyle("-fx-background-color: white");
+        statusButton.getParent().setStyle("-fx-background-color: white");
+        itemsButton.getParent().setStyle("-fx-background-color: white");
+        storeButton.getParent().setStyle("-fx-background-color: white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(habit);
     }
 
     public void openDaily(ActionEvent actionEvent) {
+        todoButton.getParent().setStyle("-fx-background-color: white");
+        habitButton.getParent().setStyle("-fx-background-color: white");
+        dailyButton.getParent().setStyle("-fx-background-color: #e0e0e0");
+        statusButton.getParent().setStyle("-fx-background-color: white");
+        itemsButton.getParent().setStyle("-fx-background-color: white");
+        storeButton.getParent().setStyle("-fx-background-color: white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(daily);
     }
 
     public void openStatus(ActionEvent actionEvent) {
+        todoButton.getParent().setStyle("-fx-background-color: white");
+        habitButton.getParent().setStyle("-fx-background-color: white");
+        dailyButton.getParent().setStyle("-fx-background-color: white");
+        statusButton.getParent().setStyle("-fx-background-color: #e0e0e0");
+        itemsButton.getParent().setStyle("-fx-background-color: white");
+        storeButton.getParent().setStyle("-fx-background-color: white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(perfil);
     }
 
     public void openItens(ActionEvent actionEvent) {
+        todoButton.getParent().setStyle("-fx-background-color: white");
+        habitButton.getParent().setStyle("-fx-background-color: white");
+        dailyButton.getParent().setStyle("-fx-background-color: white");
+        statusButton.getParent().setStyle("-fx-background-color: white");
+        itemsButton.getParent().setStyle("-fx-background-color: #e0e0e0");
+        storeButton.getParent().setStyle("-fx-background-color: white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(itens);
     }
 
     public void openStore(ActionEvent actionEvent) {
+        todoButton.getParent().setStyle("-fx-background-color: white");
+        habitButton.getParent().setStyle("-fx-background-color: white");
+        dailyButton.getParent().setStyle("-fx-background-color: white");
+        statusButton.getParent().setStyle("-fx-background-color: white");
+        itemsButton.getParent().setStyle("-fx-background-color: white");
+        storeButton.getParent().setStyle("-fx-background-color: #e0e0e0");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(loja);
     }
@@ -287,7 +325,7 @@ public class MainWindowController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/NewTask.fxml"));
         Parent root1 = fxmlLoader.load();
 
-        NewTaskController ntc = (NewTaskController) fxmlLoader.getController();
+        NewTaskController ntc = fxmlLoader.getController();
 
         ntc.setMain(this);
 
@@ -383,8 +421,6 @@ public class MainWindowController {
             itemController.setMain(this);
 
             itemsPane.getChildren().add(pane);
-
-            //stage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -394,12 +430,11 @@ public class MainWindowController {
     public void mountStore() {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/ItemTemplate.fxml"));
-            Pane pane = fxmlLoader.load();
-            ItemController itemController = fxmlLoader.getController();
-            itemController.setMain(this);
-
             for (Item item : dao.listar(Item.class)) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/ItemTemplate.fxml"));
+                Pane pane = fxmlLoader.load();
+                ItemController itemController = fxmlLoader.getController();
+                itemController.setMain(this);
                 itemController.setItemName(item.getName());
                 itemController.setItemStr(Integer.toString(item.getStrength()));
                 itemController.setItemInt(Integer.toString(item.getIntelligence()));
@@ -412,7 +447,6 @@ public class MainWindowController {
                 storePane.getChildren().add(pane);
             }
 
-            //stage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

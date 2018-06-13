@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Avatar;
 import model.Dao;
-import persistence.AvatarDao;
 
 public class App extends Application {
 
