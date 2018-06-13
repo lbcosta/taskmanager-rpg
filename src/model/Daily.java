@@ -1,19 +1,55 @@
 package model;
 
-public class Daily extends Task {
+public class Daily {
 
-    private boolean dailyDone;
-    private int avatarId;
+    int id;
+    String name;
+    String difficulty;
+    String description;
+    boolean dailyDone;
+    int avatarId;
 
-    public Daily(boolean dailyDone, int avatarId) {
+    public Daily() {
+    }
+
+    public Daily(String name, String difficulty, String description, boolean dailyDone, int avatarId) {
+        this.name = name;
+        this.difficulty = difficulty;
+        this.description = description;
         this.dailyDone = dailyDone;
         this.avatarId = avatarId;
     }
 
-    public Daily(String name, String difficulty, String description, boolean dailyDone, int avatarId) {
-        super(name, difficulty, description);
-        this.dailyDone = dailyDone;
-        this.avatarId = avatarId;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public boolean isDailyDone() {

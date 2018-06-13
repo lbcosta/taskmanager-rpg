@@ -6,10 +6,12 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import model.Daily;
+import model.Dao;
 import persistence.AvatarDao;
 import persistence.DailyDao;
 
-import static Application.App.avatarUnico;
+import static application.App.avatarUnico;
 
 public class DailyController {
 
@@ -30,26 +32,27 @@ public class DailyController {
 
     private MainWindowController main;
 
-    private DailyDao dailyDao;
-
-    private AvatarDao avatarDao;
+    private Dao dao;
 
     @FXML
     public void initialize() {
-        dailyDao = new DailyDao();
-        avatarDao = new AvatarDao();
+        dao = new Dao();
     }
 
     public void checkDaily(ActionEvent actionEvent) {
+        Daily daily = dao.buscar(Daily.class, "name", nomeDaily.getText());
+
         if(checkBoxDaily.isSelected()) {
-            dailyDao.check(null, true, nomeDaily.getText());
-            avatarDao.buff(1);
+            daily.setDailyDone(true);
+            dao.alterar(daily, daily.getId());
+            avatarUnico.buff();
         } else {
-            dailyDao.check(null, false, nomeDaily.getText());
-            avatarDao.debuff(1);
+            daily.setDailyDone(false);
+            dao.alterar(daily, daily.getId());
+            avatarUnico.debuff();
         }
 
-        avatarUnico = new AvatarDao().searchById(avatarUnico.getId());
+        dao.alterar(avatarUnico, avatarUnico.getId());
         main.updateScreen();
 
     }
@@ -57,8 +60,10 @@ public class DailyController {
     public void deleteDaily(ActionEvent actionEvent) {
         TilePane tp = (TilePane) paneDaily.getParent();
         tp.getChildren().remove(paneDaily);
-        avatarUnico.removeTask(nomeDaily.getText());
-        dailyDao.delete(nomeDaily.getText());
+
+        Daily daily = dao.buscar(Daily.class, "name", nomeDaily.getText());
+        dao.excluir(Daily.class, daily.getId());
+
         main.updateScreen();
     }
 

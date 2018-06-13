@@ -1,7 +1,5 @@
 package controller;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,9 +11,11 @@ import persistence.HabitDao;
 import persistence.TodoDao;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 
-import static Application.App.avatarUnico;
+import static application.App.avatarUnico;
 
 public class NewTaskController {
 
@@ -67,20 +67,23 @@ public class NewTaskController {
     @FXML
     private DatePicker reminderNewTodo;
 
-    private ArrayList<CheckListItem> clItem;
-
-    private ArrayList<LocalDate> reminders;
+    private ArrayList<Date> reminders;
 
     private MainWindowController main;
 
     private ObservableList<String> difficulties;
+
+    private Dao dao;
+
+    public NewTaskController() {
+        dao = new Dao();
+    }
 
 
     @FXML
     public void initialize() {
         tabPaneNewTask.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
-                    clItem = new ArrayList<>();
                     reminders = new ArrayList<>();
                 }
         );
@@ -104,9 +107,9 @@ public class NewTaskController {
         Boolean posInf = posNewHabit.isSelected();
         Boolean negInf = negNewHabit.isSelected();
 
-        Habit habit = new Habit(nome, dificuldade, descricao, posInf, negInf, 0, 0 );
-
-        avatarUnico.addTask(new HabitDao().insert(avatarUnico, habit));
+        Habit habit = dao.inserir(
+                new Habit(nome, dificuldade, descricao, posInf, negInf, 0, 0, avatarUnico.getId())
+        );
 
         main.insertHabit(habit);
 
@@ -117,15 +120,12 @@ public class NewTaskController {
         String nome = nomeNewDaily.getText();
         String dificuldade = difNewDaily.getValue().toString();
         String descricao = descNewDaily.getText();
-
-        LocalDate startDate =  startDateNewDaily.getValue();
+        Date startDate =  Date.from(startDateNewDaily.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         int repeats = Integer.parseInt(repNewDaily.getText());
 
-        Frequency freq = new Frequency(startDate, repeats);
+        Daily daily = dao.inserir(new Daily(nome, dificuldade, descricao, false, avatarUnico.getId()));
 
-        Daily daily = new Daily(nome, dificuldade, descricao, false, clItem, freq);
-
-        avatarUnico.addTask(new DailyDao().insert(avatarUnico, daily));
+        dao.inserir(new Frequency(startDate, repeats, daily.getId()));
 
         main.insertDaily(daily);
 
@@ -137,11 +137,13 @@ public class NewTaskController {
         String nome = nomeNewTodo.getText();
         String dificuldade = difNewTodo.getValue().toString();
         String descricao = descNewTodo.getText();
-        LocalDate dueDate = dueDateNewTodo.getValue();
+        Date dueDate = Date.from(dueDateNewTodo.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-        Todo todo = new Todo(nome, dificuldade, descricao, false, dueDate, reminders);
+        Todo todo = dao.inserir(new Todo(nome, dificuldade, descricao, false, dueDate, avatarUnico.getId()));
 
-        avatarUnico.addTask(new TodoDao().insert(avatarUnico, todo));
+        for(Date remind : reminders) {
+            dao.inserir(new Reminder(remind, todo.getId()));
+        }
 
         main.insertTodo(todo);
 
@@ -150,7 +152,7 @@ public class NewTaskController {
 
 
     public void addRemNewTodo(ActionEvent actionEvent) {
-        reminders.add(reminderNewTodo.getValue());
+        reminders.add(Date.from(reminderNewTodo.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
     }
 
 

@@ -1,28 +1,53 @@
 package model;
 
 public class Avatar {
-    private int id;
-    private String name;
-    private int statusId;
-    private int experience;
-    private int level;
-    private int health;
-    private int coins;
-    private int points;
+    int id;
+    String name;
+    int experience;
+    int level;
+    int health;
+    int coins;
+    int points;
 
     public Avatar() {
 
     }
 
-    public Avatar(int id, String name, int statusId, int experience, int level, int health, int coins, int points) {
+    public Avatar(int id, String name, int experience, int level, int health, int coins, int points) {
         this.id = id;
         this.name = name;
-        this.statusId = statusId;
         this.experience = experience;
         this.level = level;
         this.health = health;
         this.coins = coins;
         this.points = points;
+    }
+
+    public void buff() {
+        if (this.experience + 10 >= 100) {
+            this.level++;
+            this.points = 10;
+            this.experience = 0;
+            this.coins += 10;
+        } else {
+            this.experience += 10;
+            this.coins += 10;
+        }
+    }
+
+    public void debuff() {
+        if (this.health - 10 <= 0) {
+            if (this.coins - 10 <= 0) {
+                this.health = 0;
+                this.coins = 0;
+            } else {
+                this.health = 0;
+                this.coins -= 10;
+            }
+        } else {
+            this.health -= 10;
+            this.coins -= 10;
+        }
     }
 
     public int getId() {
@@ -39,14 +64,6 @@ public class Avatar {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(int statusId) {
-        this.statusId = statusId;
     }
 
     public int getExperience() {

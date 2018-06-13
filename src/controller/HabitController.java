@@ -5,9 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import model.Dao;
+import model.Habit;
 import persistence.AvatarDao;
 import persistence.HabitDao;
-import static Application.App.avatarUnico;
+import static application.App.avatarUnico;
 
 public class HabitController {
 
@@ -25,36 +27,44 @@ public class HabitController {
 
     private MainWindowController main;
 
-    private HabitDao habitDao;
-
-    private AvatarDao avatarDao;
+    private Dao dao;
 
     @FXML
     public void initialize() {
-        habitDao = new HabitDao();
-        avatarDao = new AvatarDao();
+        dao = new Dao();
     }
 
 
     public void deleteHabit(ActionEvent actionEvent) {
         TilePane tp = (TilePane) paneHabit.getParent();
         tp.getChildren().remove(paneHabit);
-        avatarUnico.removeTask(nomeHabit.getText());
-        habitDao.delete(nomeHabit.getText());
+
+
+        Habit habit = dao.buscar(Habit.class, "name", nomeHabit.getText());
+        dao.excluir(habit.getClass(), habit.getId());
+
         main.updateScreen();
     }
 
     public void incPosHabit(ActionEvent actionEvent) {
-        habitDao.incPosPoints(nomeHabit.getText());
-        avatarDao.buff(avatarUnico.getId());
-        avatarUnico = new AvatarDao().searchById(avatarUnico.getId());
+        Habit habit = dao.buscar(Habit.class, "name", nomeHabit.getText());
+        habit.setPositivePoints(habit.getPositivePoints() + 10);
+        dao.alterar(habit, habit.getId());
+
+        avatarUnico.buff();
+        dao.alterar(avatarUnico, avatarUnico.getId());
+
         main.updateScreen();
     }
 
     public void incNegHabit(ActionEvent actionEvent) {
-        habitDao.incNegPoints();
-        avatarDao.debuff(avatarUnico.getId());
-        avatarUnico = new AvatarDao().searchById(avatarUnico.getId());
+        Habit habit = dao.buscar(Habit.class, "name", nomeHabit.getText());
+        habit.setNegativePoints(habit.getNegativePoints() + 10);
+        dao.alterar(habit, habit.getId());
+
+        avatarUnico.debuff();
+        dao.alterar(avatarUnico, avatarUnico.getId());
+
         main.updateScreen();
     }
 

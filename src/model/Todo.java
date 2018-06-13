@@ -2,25 +2,58 @@ package model;
 
 import java.util.Date;
 
-public class Todo extends Task {
-    private boolean todoDone;
-    private Date dueDate;
-    private int avatarId;
+public class Todo {
+
+    int id;
+    String name;
+    String difficulty;
+    String description;
+    boolean todoDone;
+    Date dueDate;
+    int avatarId;
 
     public Todo() {
     }
 
-    public Todo(boolean todoDone, Date dueDate, int avatarId) {
+    public Todo(String name, String difficulty, String description, boolean todoDone, Date dueDate, int avatarId) {
+        this.name = name;
+        this.difficulty = difficulty;
+        this.description = description;
         this.todoDone = todoDone;
         this.dueDate = dueDate;
         this.avatarId = avatarId;
     }
 
-    public Todo(String name, String difficulty, String description, boolean todoDone, Date dueDate, int avatarId) {
-        super(name, difficulty, description);
-        this.todoDone = todoDone;
-        this.dueDate = dueDate;
-        this.avatarId = avatarId;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public boolean isTodoDone() {

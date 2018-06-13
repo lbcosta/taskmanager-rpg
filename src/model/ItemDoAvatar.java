@@ -1,8 +1,9 @@
 package model;
 
 public class ItemDoAvatar {
-    private int avatarId;
-    private int itemId;
+    int id;
+    int avatarId;
+    int itemId;
 
     public ItemDoAvatar() {
     }
@@ -10,6 +11,14 @@ public class ItemDoAvatar {
     public ItemDoAvatar(int avatarId, int itemId) {
         this.avatarId = avatarId;
         this.itemId = itemId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getAvatarId() {

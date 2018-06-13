@@ -6,9 +6,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import model.Dao;
+import model.Todo;
 import persistence.AvatarDao;
 import persistence.TodoDao;
-import static Application.App.avatarUnico;
+
+import static application.App.avatarUnico;
+
 public class TodoController {
 
     @FXML
@@ -28,27 +32,28 @@ public class TodoController {
 
     private MainWindowController main;
 
-    private TodoDao todoDao;
-
-    private AvatarDao avatarDao;
+    private Dao dao;
 
     @FXML
     public void initialize() {
-        todoDao = new TodoDao();
-        avatarDao = new AvatarDao();
+        dao = new Dao();
     }
 
 
     public void checkTodo(ActionEvent actionEvent) {
-        if(checkBoxTodo.isSelected()) {
-            todoDao.check(null, true, nomeTodo.getText());
-            avatarDao.buff(avatarUnico.getId());
+        Todo todo = dao.buscar(Todo.class, "name", nomeTodo.getText());
+
+        if (checkBoxTodo.isSelected()) {
+            todo.setTodoDone(true);
+            dao.alterar(todo, todo.getId());
+            avatarUnico.buff();
         } else {
-            todoDao.check(null, false, nomeTodo.getText());
-            avatarDao.debuff(avatarUnico.getId());
+            todo.setTodoDone(false);
+            dao.alterar(todo, todo.getId());
+            avatarUnico.debuff();
         }
 
-        avatarUnico = new AvatarDao().searchById(avatarUnico.getId());
+        dao.alterar(avatarUnico, avatarUnico.getId());
         main.updateScreen();
 
     }
@@ -56,8 +61,10 @@ public class TodoController {
     public void deleteTodo(ActionEvent actionEvent) {
         TilePane tp = (TilePane) paneTodo.getParent();
         tp.getChildren().remove(paneTodo);
-        avatarUnico.removeTask(nomeTodo.getText());
-        todoDao.delete(nomeTodo.getText());
+
+        Todo todo = dao.buscar(Todo.class, "name", nomeTodo.getText());
+        dao.excluir(Todo.class, todo.getId());
+
         main.updateScreen();
     }
 

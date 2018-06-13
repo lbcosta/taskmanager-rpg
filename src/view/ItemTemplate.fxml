@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -11,43 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefWidth="155.0" style="-fx-background-color: #d7ccc8;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemController">
+<StackPane fx:id="itemPane" prefHeight="125.0" prefWidth="184.0" style="-fx-background-color: #d7ccc8;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemController">
    <children>
-      <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #0069c0;">
-         <children>
-            <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/intelligence.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="itemInt" prefHeight="17.0" prefWidth="22.0" text="0" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-         </children>
-         <StackPane.margin>
-            <Insets bottom="40.0" left="70.0" top="20.0" />
-         </StackPane.margin>
-      </HBox>
-      <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #ba000d;">
-         <children>
-            <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/strentgh.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="itemStr" prefHeight="17.0" prefWidth="22.0" text="+5" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-         </children>
-         <StackPane.margin>
-            <Insets bottom="70.0" left="70.0" top="5.0" />
-         </StackPane.margin>
-      </HBox>
-      <VBox alignment="CENTER" prefHeight="89.0" prefWidth="86.0" spacing="2.0">
+      <VBox alignment="CENTER" prefHeight="90.0" prefWidth="180.0" spacing="2.0">
          <children>
             <Label fx:id="itemName" text="Espada" textFill="WHITE">
                <effect>
@@ -59,9 +27,20 @@
             </Label>
             <ImageView fx:id="itemImage" fitHeight="54.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/item-sword.png" />
+                  <Image url="@../img/items/Sword.png" />
                </image>
             </ImageView>
+            <Button fx:id="buyButton" mnemonicParsing="false" onAction="#comprarItem" style="-fx-background-color: #78909c;" text="BUY" textFill="WHITE">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
          <opaqueInsets>
             <Insets />
@@ -73,40 +52,83 @@
             <Insets right="50.0" />
          </StackPane.margin>
       </VBox>
-      <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #ffeb3b;">
+      <VBox prefHeight="200.0" prefWidth="118.0">
          <children>
-            <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/agility.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="itemAgi" prefHeight="17.0" prefWidth="22.0" text="+1" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
+            <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #0069c0;">
+               <children>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/intelligence.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="itemInt" prefHeight="17.0" prefWidth="22.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #ba000d;">
+               <children>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/strentgh.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="itemStr" prefHeight="17.0" prefWidth="22.0" text="+5" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #ffeb3b;">
+               <children>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/agility.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="itemAgi" prefHeight="17.0" prefWidth="22.0" text="+1" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #087f23;">
+               <children>
+                  <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/constitution.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="itemCon" prefHeight="17.0" prefWidth="22.0" text="+3" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: orange;">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/coin.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="price" prefHeight="21.0" prefWidth="29.0" text="10" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
          <StackPane.margin>
-            <Insets bottom="25.0" left="70.0" top="48.0" />
+            <Insets left="100.0" />
          </StackPane.margin>
-      </HBox>
-      <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #087f23;">
-         <children>
-            <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/constitution.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="itemCon" prefHeight="17.0" prefWidth="22.0" text="+3" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-         </children>
-         <StackPane.margin>
-            <Insets bottom="5.0" left="70.0" top="70.0" />
-         </StackPane.margin>
-      </HBox>
+      </VBox>
    </children>
    <effect>
       <DropShadow />

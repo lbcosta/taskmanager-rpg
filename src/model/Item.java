@@ -2,18 +2,18 @@ package model;
 
 public class Item {
 
-    private int id;
-    private String name;
-    private int strength;
-    private int intelligence;
-    private int constitution;
-    private int agility;
-    private double price;
+    int id;
+    String name;
+    int strength;
+    int intelligence;
+    int constitution;
+    int agility;
+    int price;
 
     public Item() {
     }
 
-    public Item(int id, String name, int strength, int intelligence, int constitution, int agility, double price) {
+    public Item(int id, String name, int strength, int intelligence, int constitution, int agility, int price) {
         this.id = id;
         this.name = name;
         this.strength = strength;
@@ -71,11 +71,11 @@ public class Item {
         this.agility = agility;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

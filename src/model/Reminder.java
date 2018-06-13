@@ -3,12 +3,11 @@ package model;
 import java.util.Date;
 
 public class Reminder {
-    private int id;
-    private Date remind;
-    private int todoId;
+    int id;
+    Date remind;
+    int todoId;
 
-    public Reminder(int id, Date remind, int todoId) {
-        this.id = id;
+    public Reminder(Date remind, int todoId) {
         this.remind = remind;
         this.todoId = todoId;
     }

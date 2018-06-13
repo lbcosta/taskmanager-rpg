@@ -4,16 +4,15 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Frequency {
-    private int id;
-    private Date startDate;
-    private int repeats;
-    private int dailyId;
+    int id;
+    Date startDate;
+    int repeats;
+    int dailyId;
 
     public Frequency() {
     }
 
-    public Frequency(int id, Date startDate, int repeats, int dailyId) {
-        this.id = id;
+    public Frequency(Date startDate, int repeats, int dailyId) {
         this.startDate = startDate;
         this.repeats = repeats;
         this.dailyId = dailyId;

@@ -1,21 +1,23 @@
 package model;
 
 public class Status {
-    private int id;
-    private int strength;
-    private int intelligence;
-    private int constitution;
-    private int agility;
+    int id;
+    int strength;
+    int intelligence;
+    int constitution;
+    int agility;
+    int avatarId;
 
     public Status() {
     }
 
-    public Status(int id, int strength, int intelligence, int constitution, int agility) {
+    public Status(int id, int strength, int intelligence, int constitution, int agility, int avatarId) {
         this.id = id;
         this.strength = strength;
         this.intelligence = intelligence;
         this.constitution = constitution;
         this.agility = agility;
+        this.avatarId = avatarId;
     }
 
     public int getId() {
@@ -54,7 +56,15 @@ public class Status {
         return agility;
     }
 
-    public void setAgility(int agilidade) {
-        this.agility = agilidade;
+    public void setAgility(int agility) {
+        this.agility = agility;
+    }
+
+    public int getAvatarId() {
+        return avatarId;
+    }
+
+    public void setAvatarId(int avatarId) {
+        this.avatarId = avatarId;
     }
 }
