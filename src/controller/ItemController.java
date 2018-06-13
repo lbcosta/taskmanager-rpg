@@ -72,7 +72,7 @@ public class ItemController {
 
             ItemDoAvatar item = new ItemDoAvatar(avatarUnico.getId(), itemDaLoja.getId());
 
-            dao.inserir(item); //Depois faz upload da UI e carrega todos os items do ItemDoAvatar
+            dao.inserir(item);
 
             main.updateScreen();
         }

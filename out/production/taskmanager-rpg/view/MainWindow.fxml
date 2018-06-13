@@ -126,7 +126,7 @@
                <children>
                   <VBox prefHeight="447.0" prefWidth="100.0" spacing="25.0" style="-fx-background-color: white;">
                      <children>
-                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: white;">
+                        <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: e0e0e0;">
                            <children>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

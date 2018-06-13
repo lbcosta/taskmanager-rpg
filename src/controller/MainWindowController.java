@@ -192,70 +192,48 @@ public class MainWindowController {
     }
 
     public void openTodo(ActionEvent actionEvent) {
-        todoButton.getParent().setStyle("-fx-background-color: #e0e0e0");
-        habitButton.getParent().setStyle("-fx-background-color: white");
-        dailyButton.getParent().setStyle("-fx-background-color: white");
-        statusButton.getParent().setStyle("-fx-background-color: white");
-        itemsButton.getParent().setStyle("-fx-background-color: white");
-        storeButton.getParent().setStyle("-fx-background-color: white");
-
+        colorChange("#e0e0e0","white","white","white","white", "white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(toDo);
     }
 
     public void openHabit(ActionEvent actionEvent) {
-        todoButton.getParent().setStyle("-fx-background-color: white");
-        habitButton.getParent().setStyle("-fx-background-color: #e0e0e0");
-        dailyButton.getParent().setStyle("-fx-background-color: white");
-        statusButton.getParent().setStyle("-fx-background-color: white");
-        itemsButton.getParent().setStyle("-fx-background-color: white");
-        storeButton.getParent().setStyle("-fx-background-color: white");
+        colorChange("white","#e0e0e0","white","white","white", "white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(habit);
     }
 
     public void openDaily(ActionEvent actionEvent) {
-        todoButton.getParent().setStyle("-fx-background-color: white");
-        habitButton.getParent().setStyle("-fx-background-color: white");
-        dailyButton.getParent().setStyle("-fx-background-color: #e0e0e0");
-        statusButton.getParent().setStyle("-fx-background-color: white");
-        itemsButton.getParent().setStyle("-fx-background-color: white");
-        storeButton.getParent().setStyle("-fx-background-color: white");
+        colorChange("white","white","#e0e0e0","white","white", "white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(daily);
     }
 
     public void openStatus(ActionEvent actionEvent) {
-        todoButton.getParent().setStyle("-fx-background-color: white");
-        habitButton.getParent().setStyle("-fx-background-color: white");
-        dailyButton.getParent().setStyle("-fx-background-color: white");
-        statusButton.getParent().setStyle("-fx-background-color: #e0e0e0");
-        itemsButton.getParent().setStyle("-fx-background-color: white");
-        storeButton.getParent().setStyle("-fx-background-color: white");
+        colorChange("white","white","white","#e0e0e0","white", "white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(perfil);
     }
 
     public void openItens(ActionEvent actionEvent) {
-        todoButton.getParent().setStyle("-fx-background-color: white");
-        habitButton.getParent().setStyle("-fx-background-color: white");
-        dailyButton.getParent().setStyle("-fx-background-color: white");
-        statusButton.getParent().setStyle("-fx-background-color: white");
-        itemsButton.getParent().setStyle("-fx-background-color: #e0e0e0");
-        storeButton.getParent().setStyle("-fx-background-color: white");
+        colorChange("white","white","white","white","#e0e0e0", "white");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(itens);
     }
 
     public void openStore(ActionEvent actionEvent) {
-        todoButton.getParent().setStyle("-fx-background-color: white");
-        habitButton.getParent().setStyle("-fx-background-color: white");
-        dailyButton.getParent().setStyle("-fx-background-color: white");
-        statusButton.getParent().setStyle("-fx-background-color: white");
-        itemsButton.getParent().setStyle("-fx-background-color: white");
-        storeButton.getParent().setStyle("-fx-background-color: #e0e0e0");
+        colorChange("white","white","white","white","white","#e0e0e0");
         SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
         selectionModel.select(loja);
+    }
+
+    private void colorChange(String todo, String habit, String daily, String status, String items, String store) {
+        todoButton.getParent().setStyle("-fx-background-color:"+todo);
+        habitButton.getParent().setStyle("-fx-background-color:"+habit);
+        dailyButton.getParent().setStyle("-fx-background-color:"+daily);
+        statusButton.getParent().setStyle("-fx-background-color:"+status);
+        itemsButton.getParent().setStyle("-fx-background-color:"+items);
+        storeButton.getParent().setStyle("-fx-background-color:"+store);
     }
 
     public void addStr(ActionEvent actionEvent) {
