@@ -225,9 +225,9 @@
                      <tabs>
                         <Tab fx:id="toDo" text="Todo">
                            <content>
-                              <ScrollPane layoutX="14.0" layoutY="-26.0" prefHeight="453.0" prefWidth="580.0">
+                              <ScrollPane layoutX="14.0" layoutY="-26.0" prefHeight="488.0" prefWidth="712.0">
                                  <content>
-                                    <TilePane fx:id="todoPane" alignment="CENTER" hgap="12.0" prefHeight="450.0" prefWidth="710.0" style="-fx-background-color: white;" vgap="20.0">
+                                    <TilePane fx:id="todoPane" alignment="CENTER" hgap="12.0" prefHeight="485.0" prefWidth="710.0" style="-fx-background-color: white;" vgap="20.0">
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
@@ -240,7 +240,7 @@
                            <content>
                               <ScrollPane layoutX="14.0" layoutY="-26.0" prefHeight="453.0" prefWidth="580.0">
                                  <content>
-                                    <TilePane fx:id="habitPane" alignment="CENTER" hgap="12.0" prefHeight="450.0" prefWidth="710.0" style="-fx-background-color: white;" vgap="20.0">
+                                    <TilePane fx:id="habitPane" alignment="CENTER" hgap="12.0" prefHeight="485.0" prefWidth="711.0" style="-fx-background-color: white;" vgap="20.0">
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
@@ -253,7 +253,7 @@
                            <content>
                               <ScrollPane layoutX="14.0" layoutY="-26.0" prefHeight="453.0" prefWidth="580.0">
                                  <content>
-                                    <TilePane fx:id="dailyPane" alignment="CENTER" hgap="12.0" prefHeight="450.0" prefWidth="710.0" style="-fx-background-color: white;" vgap="20.0">
+                                    <TilePane fx:id="dailyPane" alignment="CENTER" hgap="12.0" prefHeight="484.0" prefWidth="712.0" style="-fx-background-color: white;" vgap="20.0">
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
@@ -563,12 +563,18 @@
                         </Tab>
                         <Tab fx:id="itens" text="Items">
                            <content>
-                              <TilePane fx:id="itemsPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                              <TilePane fx:id="itemsPane" hgap="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" vgap="10.0">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding></TilePane>
                            </content>
                         </Tab>
                         <Tab fx:id="loja" text="Store">
                            <content>
-                              <TilePane fx:id="storePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                              <TilePane fx:id="storePane" hgap="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" vgap="10.0">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding></TilePane>
                            </content>
                         </Tab>
                      </tabs>
